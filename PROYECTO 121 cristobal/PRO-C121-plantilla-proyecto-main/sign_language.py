@@ -40,11 +40,11 @@ while True:
         if all(finger_fold_status):
             if lm_list[thumb_tip].y < lm_list[thumb_tip-1].y < lm_list[thumb_tip-2].y:
                 print("Me gusta")
-                cv2.putText(img,"megusta",(20,30),cv2.FONT_HERSHEY_SIMMPLEX,1,(0,225,0),3)
+                cv2.putText(img,"me gusta",(20,30),cv2.FONT_HERSHEY_SIMPLEX,1,(0,225,0),3)
         if all(finger_fold_status):
-            if lm_list[thumb_tip].y < lm_list[thumb_tip-1].y < lm_list[thumb_tip-2].y:
-                print("Me gusta")
-                cv2.putText(img,"megusta",(20,30),cv2.FONT_HERSHEY_SIMMPLEX,1,(0,0,255),3)
+            if lm_list[thumb_tip].y > lm_list[thumb_tip-1].y > lm_list[thumb_tip-2].y:
+                print(" no me gusta")
+                cv2.putText(img,"no me gusta",(20,30),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),3)
 
         mp_draw.draw_landmarks(img, hand_landmark,
         mp_hands.HAND_CONNECTIONS, mp_draw.DrawingSpec((0,0,255),2,2),
@@ -54,6 +54,5 @@ while True:
     cv2.imshow("Rastreo de manos", img)
     cv2.waitKey(1)
 finger_fold_status = []
-
 
 
